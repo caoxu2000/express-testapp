@@ -1,0 +1,52 @@
+{
+  "name": "Xu First Express 4 Nodejs App",
+  "description": "Xu First Express 4 Nodejs App",
+  "version": "1.0.0",
+  "engines": {
+    "node": "4.4.3"
+  },
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "npm run watch | bunyan",
+    "test": "npm run lint && NODE_CONFIG='{ \"app\": { \"logLevel\": \"fatal\" } }' mocha 'app/**/tests/**/*_test.js'",
+    "testfile": "NODE_CONFIG='{ \"app\": { \"logLevel\": \"fatal\" } }' mocha",
+    "test-cov": "npm run lint && NODE_CONFIG='{ \"app\": { \"logLevel\": \"fatal\" } }' istanbul --include-all-sources cover _mocha 'app/lib/**/tests/**/*_test.js'",
+    "lint": "eslint app/*",
+    "watch": "npm run watch-server & npm run watch-js",
+    "watch-js": "nodemon --watch app/**/*.js --exec 'npm run lint'",
+    "watch-server": "nodemon --watch app --watch config --ext js,json app/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://stash.int.yp.com/scm/pdsibi/insights-js-server.git"
+  },
+  "dependencies": {
+    "bluebird": "3.3.5",
+    "body-parser": "1.15.0",
+    "bunyan": "1.8.0",
+    "config": "1.20.1",
+    "cookie-parser": "1.4.1",
+    "cors": "2.7.1",
+    "express": "4.13.4",
+    "multer": "1.1.0",
+    "joi": "8.0.5",
+    "lodash": "4.11.1",
+    "moment": "2.12.0",
+    "moment-range": "2.2.0",
+    "newrelic": "1.26.2",
+    "numeral": "1.5.3",
+    "request-promise": "2.0.1",
+    "serve-favicon": "2.3.0",
+    "xmldoc": "0.4.0"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "eslint": "2.7.0",
+    "istanbul": "0.4.3",
+    "mocha": "2.4.5",
+    "nodemon": "1.9.1",
+    "sinon": "1.17.3",
+    "supertest": "1.2.0"
+  }
+}
